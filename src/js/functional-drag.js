@@ -157,6 +157,22 @@ export default () => {
       )
     ),
     setStyleRule(
+      styleRuleString('.stackableSpawner')(
+        styleAttributeString('background-color')('#111111'),
+        styleAttributeString('color')('#eeeeee'),
+        styleAttributeString('padding')('5px'),
+        styleAttributeString('margin')('5px'),
+      )
+    ),
+    setStyleRule(
+      styleRuleString('.draggableSpawner')(
+        styleAttributeString('background-color')('#111111'),
+        styleAttributeString('color')('#eeeeee'),
+        styleAttributeString('padding')('5px'),
+        styleAttributeString('margin')('5px'),
+      )
+    ),
+    setStyleRule(
       styleRuleString('body')(
         styleAttributeString('background-color')('#eeeeee'),
       )
