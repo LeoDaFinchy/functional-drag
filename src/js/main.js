@@ -1,8 +1,11 @@
 "use strict";
 
+require('babel-polyfill')
+
 import '../stylesheets/index.sass';
 import './utils/colour_console';
 import _ from 'lodash';
+import fMain from './functional-drag'
 
 function ready(){
   try{
@@ -17,5 +20,5 @@ function ready(){
 ready();
 
 function main(){
-  console.log("MAIN")
+  fMain()
 }
