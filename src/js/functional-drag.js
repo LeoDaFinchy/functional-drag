@@ -8,6 +8,7 @@ const getBody = () => document.body
 const getHead = () => document.head
 const addChild = child => parent => { parent.appendChild(child); return parent }
 const attachToParent = child => parent => { parent.appendChild(child); return child }
+const getRoot = () => document.getElementById('root')
 
 const when = event => callback => target => { target.addEventListener(event, callback); return target }
 const whenDragStart = when('dragstart')
@@ -126,27 +127,29 @@ export default () => {
   window.blackboard = {}
   mutate(
     setStyleRule(
-      styleRuleString('.draggable')(
+      styleRuleString('#root .draggable')(
         styleAttributeString('box-shadow')('1px 1px 4px #666666'),
         styleAttributeString('padding')('5px'),
         styleAttributeString('margin')('5px'),
         styleAttributeString('user-select')('none'),
         styleAttributeString('cursor')('hand'),
         styleAttributeString('background-color')('#eeeeee'),
+        styleAttributeString('color')('#333333'),
       ),
     ),
     setStyleRule(
-      styleRuleString('.dropZone')(
+      styleRuleString('#root .dropZone')(
         styleAttributeString('box-shadow')('1px 1px 4px #666666 inset'),
         styleAttributeString('padding')('5px'),
         styleAttributeString('margin')('5px'),
         styleAttributeString('user-select')('none'),
         styleAttributeString('cursor')('hand'),
         styleAttributeString('background-color')('#eeeeee'),
+        styleAttributeString('color')('#333333'),
       )
     ),
     setStyleRule(
-      styleRuleString('.stackable')(
+      styleRuleString('#root .stackable')(
         styleAttributeString('box-shadow')('1px 1px 4px #666666 inset, 1px 1px 4px #666666'),
         styleAttributeString('border')('2px #eeeeee solid'),
         styleAttributeString('padding')('4px'),
@@ -154,10 +157,11 @@ export default () => {
         styleAttributeString('user-select')('none'),
         styleAttributeString('cursor')('hand'),
         styleAttributeString('background-color')('#eeeeee'),
+        styleAttributeString('color')('#333333'),
       )
     ),
     setStyleRule(
-      styleRuleString('.stackableSpawner')(
+      styleRuleString('#root .stackableSpawner')(
         styleAttributeString('background-color')('#111111'),
         styleAttributeString('color')('#eeeeee'),
         styleAttributeString('padding')('5px'),
@@ -165,7 +169,7 @@ export default () => {
       )
     ),
     setStyleRule(
-      styleRuleString('.draggableSpawner')(
+      styleRuleString('#root .draggableSpawner')(
         styleAttributeString('background-color')('#111111'),
         styleAttributeString('color')('#eeeeee'),
         styleAttributeString('padding')('5px'),
@@ -173,7 +177,7 @@ export default () => {
       )
     ),
     setStyleRule(
-      styleRuleString('body')(
+      styleRuleString('#root')(
         styleAttributeString('background-color')('#eeeeee'),
       )
     )
@@ -195,5 +199,5 @@ export default () => {
       draggableSpawner(),
       stackableSpawner(),
     ),
-  )(getBody())
+  )(getRoot())
 }
